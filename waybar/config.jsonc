@@ -1,0 +1,132 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    //"position": "top", // Waybar position (top|bottom|left|rig
+    //"height": 25, // Waybar height (to be removed for auto height)
+    "margin-top": 12,
+    "width": 1892, // Waybar width
+    "spacing": 2, // Gaps between modules (4px) 
+    //Choose the order of the modules
+    "modules-left":[
+	"hyprland/workspaces",
+	"hyprland/window"
+    ],
+    "modules-center": [
+	"clock"
+    ],
+    "modules-right": [
+	"backlight",
+	"pulseaudio",
+	"battery",	
+	"network",
+	"power-profiles-daemon"
+    ],
+    "hyprland/workspaces": {
+	"format": "{name}",
+	"format-icons": {
+		"1": "1",
+		"2": "2",
+		"3": "3",
+		"4": "4",
+		"5": "5"
+	},     
+	"persistent-workspaces": {
+             "*": 5, // 5 workspaces by default on every monitor
+             "HDMI-A-1": 3 // but only three on HDMI-A-1
+       }
+    },
+    "hyprland/window": {
+      "format": "> | {title} |",
+      "separate-outputs": true,
+      "rewrite": {
+        "(.*) — Mozilla Firefox": "󰈹  $1",
+        "(.*) — Zen Browser": "󰈹  Zen - $1",
+        "(.*) - Google Chrome": "  $1",
+        "(.*) - Visual Studio Code": "󰨞  $1",
+        "(.*) - nvim": "  $1",
+        "(.*) - Obsidian(.*)": "󱓧  $1",
+        "(.*) - fish": "  $1",
+        "yazi: (.*)": "  $1",
+        "nwg-look": "  GTK Settings",
+        "Qt6 Configuration Tool": "  QT Settings",
+        "blueman-manager": "Bluetooth Settings"
+      }
+    },
+    "clock": {
+        //"timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        "device": "AUO32EB",
+        "format": "DIM [ {icon} ] {percent}%",
+        "format-icons": ["🮐🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮋"]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "BAT [ {icon} ] {capacity}%",
+        "format-full": "BAT [ {icon} ]{capacity}%",
+        "format-charging": "CHRG [ {icon} ] {capacity}%",
+        "format-plugged": "PLG [ {icon} ] {capacity}%",
+        "format-alt": "{time} [ {icon} ]",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["🮐🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮋"]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": ".",
+        "performance": "!!",
+        "balanced": "!",
+        "power-saver": "."
+      }
+    },
+    "network": {
+        //"interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "[]",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{essid} via {ifname}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "[⚠]",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+	"on-click": "nmtui"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "VOL [ {icon} ] {volume}%",
+        "format-bluetooth": "VOL  [ {icon} ] {volume}%",
+        "format-bluetooth-muted": "VOL  [ M U T E D ] {volume}%",
+        "format-muted": "VOL {volume}% [ M U T E D ]",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": ["🮐🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮋"],
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["🮐🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮐🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮐🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮐🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮐🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮐🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮐🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮐🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮐🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮐", "🮋🮋🮋🮋🮋🮋🮋🮋🮋🮋"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+        "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}

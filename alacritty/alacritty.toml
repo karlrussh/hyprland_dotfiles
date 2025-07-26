@@ -1,0 +1,17 @@
+[window]
+
+padding = {x = 10, y = 10}
+opacity = 0.8
+
+
+[font]
+
+normal = {family = "CozetteVector", style = "normal"}
+
+size = 15
+
+[colors]
+
+[colors.primary]
+background = "#010101"
+foreground = "#ffffff"
