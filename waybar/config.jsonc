@@ -3,8 +3,8 @@
     //"layer": "top", // Waybar at top layer
     //"position": "top", // Waybar position (top|bottom|left|rig
     "height": 25, // Waybar height (to be removed for auto height)
-    "margin-top": 10,
-    "width": 1900, // Waybar width
+    "margin-top": 0,
+    "width": 1920, // Waybar width
     "spacing": 1, // Gaps between modules (4px) 
     //Choose the order of the modules
     "modules-left":[
@@ -48,7 +48,8 @@
         "yazi: (.*)": "  $1",
         "nwg-look": "  GTK Settings",
         "Qt6 Configuration Tool": "  QT Settings",
-        "blueman-manager": "Bluetooth Settings"
+        "blueman-manager": "Bluetooth Settings",
+	"Mozilla Firefox": "Firefox"
       }
     	},
        "clock": {

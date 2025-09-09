@@ -5,7 +5,7 @@ import = [
 
 [window]
 
-padding = {x = 10, y = 10}
+padding = {x = 15, y = 10}
 opacity = 1
 
 
@@ -19,4 +19,4 @@ size = 15
 
 [colors.primary]
 background = "#010101"
-foreground = "#ffffff"
+foreground = "#FFFFFF"
