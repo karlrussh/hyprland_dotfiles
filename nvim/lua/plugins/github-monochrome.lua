@@ -16,7 +16,7 @@ return {
         -- vim.cmd.colorscheme("github-monochrome-rosepine")
         -- vim.cmd.colorscheme("github-monochrome-rosepine")
         -- vim.cmd.colorscheme("github-monochrome-zenbones")
-
+        
         vim.cmd.colorscheme("github-monochrome-zenbones")
     end
 }

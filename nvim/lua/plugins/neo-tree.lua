@@ -7,7 +7,6 @@ return{
         "MunifTanjim/nui.nvim",
         "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    
     config = function()
         lazy = false,
         -- Neo Tree Keybind (Ctrl + N)
